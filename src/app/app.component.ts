@@ -1,7 +1,6 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
-import { Subject } from 'rxjs/Rx';
 
 import 'rxjs/add/operator/map';
 
@@ -42,18 +41,11 @@ export class AppComponent {
   tipus: string;
 
   grausCol: AngularFirestoreCollection<Grau>;
-  //done:string = "";
   // graus: Observable<Grau[]>;
   graus: any;
   currentID: string;
   currentGrau: Observable<Grau>;
   grauDoc: AngularFirestoreDocument<Grau>;
-
-
-  //dtOptions: DataTables.Settings = {};
-  // We use this trigger because fetching the list of persons can be quite long,
-  // thus we ensure the data is fetched before rendering
-   //dtTrigger: Subject = new Subject();
 
 
   addGrau() {
@@ -80,10 +72,6 @@ export class AppComponent {
     // this.graus = this.grausCol.valueChanges();
 
     this.graus = this.grausCol.snapshotChanges().map(actions =>{
-        /*if(this.done==""){
-          this.dtTrigger.next();
-          this.done="done";
-        }*/
       return actions.map(a => {
         const data = a.payload.doc.data() as Grau;
         const id = a.payload.doc.id;

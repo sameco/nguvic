@@ -2,7 +2,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DataTablesModule } from 'angular-datatables';
 
 import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
@@ -22,7 +21,6 @@ var firebaseConfig = {
     AppComponent
   ],
   imports: [
-    DataTablesModule,
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
