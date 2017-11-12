@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.css";
+
+body {
+    background: #a5a5a5;
+    padding: 2em;
+    font-family: 'Arial';
+}
